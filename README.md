@@ -7,8 +7,8 @@ For an example use, see https://github.com/IQTLabs/gamutRF/blob/main/tests/test_
 ## Platforms
 
 * [iqtlabs/torchserve](https://hub.docker.com/r/iqtlabs/torchserve): CPU only, for arm64 (includes Pi4 and Apple) and amd64.
-* [iqtlabs/cuda-torchserve](https://hub.docker.com/r/iqtlabs/cuda-torchserve): CUDA accelerated for amd64 only.
-* [iqtlabs/orin-torchserve](https://hub.docker.com/r/iqtlabs/orin-torchserve): [Jetson Orin](https://www.nvidia.com/en-us/autonomous-machines/embedded-systems/jetson-orin/), arm64 only.
+* [iqtlabs/cuda-torchserve](https://hub.docker.com/r/iqtlabs/cuda-torchserve): CUDA (11.8 or later) accelerated for amd64 only.
+* [iqtlabs/orin-torchserve](https://hub.docker.com/r/iqtlabs/orin-torchserve): [Jetson Orin](https://www.nvidia.com/en-us/autonomous-machines/embedded-systems/jetson-orin/), [JetPack 5.1.2](https://developer.nvidia.com/embedded/jetpack) or later, arm64 only.
 
 ## Apple MPS support
 
