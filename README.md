@@ -2,7 +2,7 @@
 
 This repository provides Docker containers for [TorchServe](https://github.com/pytorch/serve) (an inference server for [PyTorch](https://github.com/pytorch/pytorch) models) for multiple hardware platforms.
 
-For an example use, see https://github.com/iqtlabs/gamutrf/tests/test_torchserve.sh, or see [TorchServe's examples](https://github.com/pytorch/serve/tree/master/examples/object_detector/yolo/yolov8).
+For an example use, see https://github.com/IQTLabs/gamutRF/blob/main/tests/test_torchserve.sh, or see [TorchServe's examples](https://github.com/pytorch/serve/tree/master/examples/object_detector/yolo/yolov8).
 
 ## Platforms
 
