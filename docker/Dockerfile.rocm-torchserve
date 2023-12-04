@@ -1,0 +1,18 @@
+FROM rocm/pytorch:latest
+ENV DEBIAN_FRONTEND=noninteractive
+WORKDIR /root
+COPY torchserve/install-rocm-torchserve.sh /torchserve/install-rocm-torchserve.sh
+RUN /torchserve/install-rocm-torchserve.sh
+RUN torchserve --help
+COPY torchserve/config.properties /torchserve/config.properties
+COPY torchserve/torchserve-rocm-entrypoint.sh /torchserve/torchserve-entrypoint.sh
+ENTRYPOINT ["/torchserve/torchserve-entrypoint.sh"]
+
+# TODO: must build locally - 20+GB required, which is too much for Github.
+# From https://rocm.docs.amd.com/en/latest/how_to/pytorch_install/pytorch_install.html
+# docker run command, should return True if ROCm is available.
+#
+# $ git clone https://github.com/iqtlabs/torchserve
+# $ cd torchserve
+# $ docker build -f docker/Dockerfile.rocm-torchserve . -t iqtlabs/rocm-torchserve
+# $ docker run --cap-add=SYS_PTRACE --security-opt seccomp=unconfined --device=/dev/kfd --device=/dev/dri --group-add video --ipc=host --shm-size 8G --entrypoint python3 -ti iqtlabs/rocm-torchserve -c "import torch ; print(torch.cuda.is_available())"
