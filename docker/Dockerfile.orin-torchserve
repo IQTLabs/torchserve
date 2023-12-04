@@ -6,7 +6,7 @@ RUN /torchserve/install-orin-torchserve.sh
 RUN /usr/local/bin/torchserve --help
 COPY torchserve/config.properties /torchserve/config.properties
 COPY torchserve/torchserve-entrypoint.sh /torchserve/torchserve-entrypoint.sh
-CMD ["/torchserve/torchserve-entrypoint.sh"]
+ENTRYPOINT ["/torchserve/torchserve-entrypoint.sh"]
 
 # 0. Always start from a clean sdkmanager, installation of Ubuntu 20.04. DO NOT attempt an in-place JetPack upgrade, DO NOT try to install docker-ce, and DO NOT try to re-install/replace CUDA without re-imaging the entire system.
 # 1. Install JetPack via apt: https://docs.nvidia.com/jetson/jetpack/install-jetpack/index.html#install-jetpack. apt show nvidia-jetpack should show 5.1.2.
