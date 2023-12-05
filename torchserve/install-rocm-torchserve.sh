@@ -5,7 +5,6 @@ apt-get update && \
   apt-get install -y \
     git \
     python3-pip && \
-  pip config set global.no-cache-dir false && \
   git clone https://github.com/pytorch/serve -b v0.9.0 && \
   cd serve && \
   cp /dev/null requirements/torch_linux.txt && \
