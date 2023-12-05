@@ -2,7 +2,7 @@ FROM rocm/pytorch:latest
 ENV DEBIAN_FRONTEND=noninteractive
 WORKDIR /root
 COPY torchserve/install-rocm-torchserve.sh /torchserve/install-rocm-torchserve.sh
-RUN /torchserve/install-rocm-torchserve.sh
+RUN --mount=type=cache,target=/root/.cache /torchserve/install-rocm-torchserve.sh
 RUN torchserve --help
 COPY torchserve/config.properties /torchserve/config.properties
 COPY torchserve/torchserve-rocm-entrypoint.sh /torchserve/torchserve-entrypoint.sh

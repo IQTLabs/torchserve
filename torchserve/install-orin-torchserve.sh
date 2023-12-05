@@ -12,7 +12,6 @@ apt-get update && \
   pip install "opencv-python<4.8.0.76" && \
   echo /usr/local/lib/python3.8/dist-packages/opencv_python.libs > /etc/ld.so.conf.d/opencv.conf && \
   ldconfig && \
-  pip config set global.no-cache-dir false && \
   git clone https://github.com/pytorch/serve -b v0.9.0 && \
   cd serve && \
   pip install -r requirements/common.txt && \
