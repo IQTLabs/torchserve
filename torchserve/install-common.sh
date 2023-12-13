@@ -1,2 +1,2 @@
 #!/bin/sh
-pip install scipy opencv-python py-cpuinfo seaborn thop 
+pip install opencv-python pandas py-cpuinfo scipy seaborn thop 
