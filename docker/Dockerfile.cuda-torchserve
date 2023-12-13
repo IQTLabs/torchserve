@@ -1,6 +1,8 @@
 FROM nvidia/cuda:11.8.0-runtime-ubuntu22.04
 ENV DEBIAN_FRONTEND=noninteractive
 WORKDIR /root
+COPY torchserve/clone-torchserve.sh /torchserve/clone-torchserve.sh
+COPY torchserve/install-common.sh /torchserve/install-common.sh
 COPY torchserve/install-torchserve.sh /torchserve/install-torchserve.sh
 RUN --mount=type=cache,target=/root/.cache /torchserve/install-torchserve.sh --cuda cu118
 RUN /usr/local/bin/torchserve --help
