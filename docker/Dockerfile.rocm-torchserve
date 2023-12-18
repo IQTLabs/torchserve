@@ -8,6 +8,8 @@ RUN --mount=type=cache,target=/root/.cache /torchserve/install-rocm-torchserve.s
 RUN torchserve --help
 COPY torchserve/config.properties /torchserve/config.properties
 COPY torchserve/torchserve-rocm-entrypoint.sh /torchserve/torchserve-entrypoint.sh
+COPY torchserve/healthcheck.sh /torchserve/healthcheck.sh
+HEALTHCHECK CMD /torchserve/healthcheck.sh || exit 1
 ENTRYPOINT ["/torchserve/torchserve-entrypoint.sh"]
 
 # TODO: must build locally - 20+GB required, which is too much for Github.

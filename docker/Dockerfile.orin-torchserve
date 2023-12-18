@@ -8,6 +8,8 @@ RUN --mount=type=cache,target=/root/.cache /torchserve/install-orin-torchserve.s
 RUN /usr/local/bin/torchserve --help
 COPY torchserve/config.properties /torchserve/config.properties
 COPY torchserve/torchserve-entrypoint.sh /torchserve/torchserve-entrypoint.sh
+COPY torchserve/healthcheck.sh /torchserve/healthcheck.sh
+HEALTHCHECK CMD /torchserve/healthcheck.sh || exit 1
 ENTRYPOINT ["/torchserve/torchserve-entrypoint.sh"]
 
 # 0. Always start from a clean sdkmanager, installation of Ubuntu 20.04. DO NOT attempt an in-place JetPack upgrade, DO NOT try to install docker-ce, and DO NOT try to re-install/replace CUDA without re-imaging the entire system.
