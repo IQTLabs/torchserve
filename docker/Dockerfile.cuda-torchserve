@@ -8,6 +8,8 @@ RUN --mount=type=cache,target=/root/.cache /torchserve/install-torchserve.sh --c
 RUN /usr/local/bin/torchserve --help
 COPY torchserve/config.properties /torchserve/config.properties
 COPY torchserve/torchserve-entrypoint.sh /torchserve/torchserve-entrypoint.sh
+COPY torchserve/healthcheck.sh /torchserve/healthcheck.sh
+HEALTHCHECK CMD /torchserve/healthcheck.sh || exit 1
 ENTRYPOINT ["/torchserve/torchserve-entrypoint.sh"]
 
 # see Dockerfile.torchserve for example, but use
