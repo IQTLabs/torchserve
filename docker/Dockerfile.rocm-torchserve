@@ -1,9 +1,12 @@
 FROM rocm/pytorch:latest
+ARG PIP_CACHE
 ENV DEBIAN_FRONTEND=noninteractive
 WORKDIR /root
+COPY torchserve/pipcacheconfig.sh /torchserve/pipcacheconfig.sh
 COPY torchserve/clone-torchserve.sh /torchserve/clone-torchserve.sh
 COPY torchserve/install-common.sh /torchserve/install-common.sh
 COPY torchserve/install-rocm-torchserve.sh /torchserve/install-rocm-torchserve.sh
+RUN /torchserve/pipcacheconfig.sh
 RUN --mount=type=cache,target=/root/.cache /torchserve/install-rocm-torchserve.sh
 RUN torchserve --help
 COPY torchserve/config.properties /torchserve/config.properties
