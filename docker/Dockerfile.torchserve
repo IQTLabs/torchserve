@@ -1,9 +1,12 @@
 FROM ubuntu:22.04
+ARG PIP_CACHE
 ENV DEBIAN_FRONTEND=noninteractive
 WORKDIR /root
+COPY torchserve/pipcacheconfig.sh /torchserve/pipcacheconfig.sh
 COPY torchserve/clone-torchserve.sh /torchserve/clone-torchserve.sh
 COPY torchserve/install-common.sh /torchserve/install-common.sh
 COPY torchserve/install-torchserve.sh /torchserve/install-torchserve.sh
+RUN /torchserve/pipcacheconfig.sh
 RUN --mount=type=cache,target=/root/.cache /torchserve/install-torchserve.sh
 RUN /usr/local/bin/torchserve --help
 COPY torchserve/config.properties /torchserve/config.properties
