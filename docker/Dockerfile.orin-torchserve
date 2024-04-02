@@ -1,3 +1,4 @@
+# https://catalog.ngc.nvidia.com/orgs/nvidia/containers/l4t-pytorch
 FROM nvcr.io/nvidia/l4t-pytorch:r35.2.1-pth2.0-py3
 ARG PIP_CACHE
 ENV DEBIAN_FRONTEND=noninteractive
