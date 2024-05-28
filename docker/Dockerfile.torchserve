@@ -1,14 +1,17 @@
-FROM ubuntu:22.04
+FROM ubuntu:24.04
 ARG PIP_CACHE
 ENV DEBIAN_FRONTEND=noninteractive
 WORKDIR /root
+ENV PYENV_ROOT="/pyenv"
+ENV PATH="${PATH}:${PYENV_ROOT}/bin:${PYENV_ROOT}/shims"
 COPY torchserve/pipcacheconfig.sh /torchserve/pipcacheconfig.sh
 COPY torchserve/clone-torchserve.sh /torchserve/clone-torchserve.sh
 COPY torchserve/install-common.sh /torchserve/install-common.sh
 COPY torchserve/install-torchserve.sh /torchserve/install-torchserve.sh
 RUN /torchserve/pipcacheconfig.sh
 RUN --mount=type=cache,target=/root/.cache /torchserve/install-torchserve.sh
-RUN /usr/local/bin/torchserve --help
+# ENTRYPOINT ["tail", "-f", "/dev/null"]
+RUN $(which torchserve) --help
 COPY torchserve/config.properties /torchserve/config.properties
 COPY torchserve/torchserve-entrypoint.sh /torchserve/torchserve-entrypoint.sh
 COPY torchserve/healthcheck.sh /torchserve/healthcheck.sh
