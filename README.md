@@ -6,6 +6,12 @@ For an example use, see [TorchServe's examples](https://github.com/pytorch/serve
 
 Instead of starting torchserve as given in the example, start it with a docker command, as follows for your platform (where your model is stored as a ```.mar``` file, in a ```model_store``` subdirectory of the directory where you are starting torchserve).
 
+## setuptools workaround
+
+As of torchserve v11, you will need to add ```setuptools``` to your ```requirements.txt``` when generating a MAR file:
+
+https://github.com/pytorch/serve/issues/3176
+
 ## Platforms
 
 * [iqtlabs/torchserve](https://hub.docker.com/r/iqtlabs/torchserve): CPU only, for arm64 (includes Pi4 and Apple) and amd64.
