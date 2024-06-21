@@ -6,9 +6,9 @@ For an example use, see [TorchServe's examples](https://github.com/pytorch/serve
 
 Instead of starting torchserve as given in the example, start it with a docker command, as follows for your platform (where your model is stored as a ```.mar``` file, in a ```model_store``` subdirectory of the directory where you are starting torchserve).
 
-## setuptools workaround
+## NOTE: MAR setuptools workaround
 
-As of torchserve v11, you will need to add ```setuptools``` to your ```requirements.txt``` when generating a MAR file:
+As of torchserve v11, you will need to add ```setuptools==69.5.1``` to your ```requirements.txt``` when generating a MAR file:
 
 https://github.com/pytorch/serve/issues/3176
 
