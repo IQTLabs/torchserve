@@ -18,7 +18,7 @@ https://github.com/pytorch/serve/issues/3176
 
 ```docker run -v $(pwd)/model_store:/model_store -p 8080:8080 --rm --name torchserve -d iqtlabs/torchserve --models <model>=<model>.mar```
 
-* [iqtlabs/cuda-torchserve](https://hub.docker.com/r/iqtlabs/cuda-torchserve): CUDA (12.4 or later) accelerated for amd64 only.
+* [iqtlabs/cuda-torchserve](https://hub.docker.com/r/iqtlabs/cuda-torchserve): CUDA (12.5 or later) accelerated for amd64 only.
 
 ```docker run --gpus all -v $(pwd)/model_store:/model_store -p 8080:8080 --rm --name torchserve -d iqtlabs/cuda-torchserve --models <model>=<model>.mar```
 
