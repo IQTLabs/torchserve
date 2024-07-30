@@ -12,6 +12,10 @@ As of torchserve v11, you will need to add ```setuptools==69.5.1``` to your ```r
 
 https://github.com/pytorch/serve/issues/3176
 
+## NOTE: token authorization
+
+As of torchserve v11.1, token authorization is on. Add ```--disable-token-auth``` to turn it off.
+
 ## Platforms
 
 * [iqtlabs/torchserve](https://hub.docker.com/r/iqtlabs/torchserve): CPU only, for arm64 (includes Pi4 and Apple) and amd64.
