@@ -1,4 +1,4 @@
-FROM nvidia/cuda:12.5.1-runtime-ubuntu22.04
+FROM nvidia/cuda:12.6.0-runtime-ubuntu22.04
 ARG PIP_CACHE
 ENV DEBIAN_FRONTEND=noninteractive
 WORKDIR /root
