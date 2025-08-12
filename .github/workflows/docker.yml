@@ -9,7 +9,7 @@ jobs:
   buildx-torchserve:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v5
       with:
         fetch-depth: 0
     - name: Get the version
@@ -43,7 +43,7 @@ jobs:
   buildx-orin-torchserve:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v5
       with:
         fetch-depth: 0
     - name: Get the version
@@ -77,7 +77,7 @@ jobs:
   buildx-cuda-torchserve:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v5
       with:
         fetch-depth: 0
     - name: Get the version
